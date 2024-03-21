@@ -14,7 +14,7 @@ signed main(){
                 s = s.substr(32-n);
                 size_t first = s.find("01");
                 size_t second = s.find("01",first + 2);
-                if(first != string::npos && second != string::npos && s.find("01",second + 2) == string :: npos) cout << s << " ";
+                if(first == string::npos && second != string::npos && s.find("01",second + 2) == string :: npos) cout << s << " ";
 			}
             cout << endl;
         }
