@@ -29,3 +29,46 @@ int convertToDecimal(string num, int K) {
 
     return decimal;
 }
+
+
+string convertFromDecimal(int num, int K) {
+    string result = "";
+    while (num > 0) {
+        int digit = num % K;
+        if (digit < 10) {
+            result = char(digit + '0') + result;
+        } else {
+            result = char(digit - 10 + 'A') + result;
+        }
+        num /= K;
+    }
+
+    return result;
+}
+
+
+string add(string A, string B, int K) {
+    int decimalA = convertToDecimal(A, K);
+    int decimalB = convertToDecimal(B, K);
+    int sum = decimalA + decimalB;
+    string result = convertFromDecimal(sum, K);
+    return result;
+}
+
+int main()
+{
+    faster();
+    //freopen("input.txt","r", stdin);
+    //freopen("output.txt","w", stdout);
+
+    int t;
+	cin >> t;
+	while(t--){
+        int k;
+        string a, b;
+        cin >>k >>a >>b;
+        cout <<add(a,b,k) <<'\n';
+	}
+
+   return 0;
+}
